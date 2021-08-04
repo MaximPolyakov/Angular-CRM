@@ -1,0 +1,12 @@
+<div *ngIf='data'>
+    name {{ data[0].name }}
+</div>
+<div *ngIf='!data'>
+    <div id="loader">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
+</div>
