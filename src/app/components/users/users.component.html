@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="search">
+        <input type="text" placeholder="Type to search..." #search>
+    </div>
+    <div *ngIf='users'>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let user of users'>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.position }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf='!users'>
+        <div id="loader" style="margin-top: 100px;">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+    </div>
+</div>

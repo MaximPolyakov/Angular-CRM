@@ -2,7 +2,18 @@
     "users": [
         {
             "id": 1,
-            "name": "Herr Major" 
+            "name": "Herr Major",
+            "position": "Senior Dev" 
+        },
+        {
+            "id": 2,
+            "name": "Chlenovagin",
+            "position": "Middle Dev" 
+        },
+        {
+            "id": 3,
+            "name": "Micropenis",
+            "position": "Junior Dev" 
         }
     ]
 }

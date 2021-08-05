@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { HttpService } from './http.service';
+import { HttpService } from './services/http.service';
 
 
 
@@ -8,23 +8,8 @@ import { HttpService } from './http.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  data: any
-  constructor(private httpService: HttpService) { }
-
-  ngOnInit(): void {
-    this.httpService.getUsers()
-      .subscribe(data => {
-        setTimeout(() => {
-          this.data = data;
-        }, 3000)
-      });
-  } 
-
-
-  ngAfterViewInit(): void {
-    
-  }
+export class AppComponent {
+  
 }
 
 
