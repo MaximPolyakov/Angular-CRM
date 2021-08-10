@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { HttpService } from './services/http.service';
 import { UsersComponent } from './components/users/users.component';
 import { HomeComponent } from './components/home/home.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    HomeComponent
+    HomeComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

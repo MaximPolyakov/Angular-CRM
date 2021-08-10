@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpService } from '../../services/http.service';
 import { debounceTime, map, tap } from 'rxjs/operators';
-import { fromEvent } from 'rxjs';
+import { fromEvent, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -12,7 +12,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
   _users: any
   users: any
-  @ViewChild('search', {static: true}) search
+  @ViewChild('search', {static: true}) search: ElementRef
 
   constructor(private httpService: HttpService) { }
 
@@ -27,19 +27,15 @@ export class UsersComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const source = fromEvent(this.search.nativeElement, 'input')
-    .pipe(
-      map(el => {
-        console.log(el)
-        return el
-      }),
-      debounceTime(3000),
-      tap(e => console.log(e))
+    const source: Observable<any> = fromEvent(this.search.nativeElement, 'input');
+    source.pipe(
+      debounceTime(2000),
+      map(e => e.target.value)
     )
     .subscribe(data => {
-      console.log(this.users)
-      // this.users = data ? this._users.filter(e => e.name.includes(data)) : this._users
+
+      this.users = data ? this._users.filter(e => e.name.toLowerCase().includes(data.toLowerCase())) : this._users
     })
-    
+
   }
 }
