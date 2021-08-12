@@ -6,9 +6,9 @@
         <table>
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Position</th>
+                    <th (click)="sortBy('num', 'id')">Id</th>
+                    <th (click)="sortBy('str', 'name')">Name</th>
+                    <th (click)="sortBy('str', 'position')">Position</th>
                 </tr>
             </thead>
             <tbody>

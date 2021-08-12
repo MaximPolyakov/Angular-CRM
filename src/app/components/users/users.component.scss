@@ -7,6 +7,16 @@ td, th {
 }
 th {
     text-align: left;
+    cursor: pointer;
+    background-color: #5e00c5;
+    color: #DDD;
+}
+td, td > a {
+	background-color: #333;
+    color: #71d0ec;
+}
+a {
+	text-decoration: none;
 }
 table, th, td {
     border: 1px solid #222;

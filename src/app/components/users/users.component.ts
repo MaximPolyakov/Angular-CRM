@@ -12,6 +12,8 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
   _users: any
   users: any
+  sortDirection = 1
+  sortName: string
   @ViewChild('search', {static: true}) search: ElementRef
 
   constructor(private httpService: HttpService) { }
@@ -33,9 +35,22 @@ export class UsersComponent implements OnInit, AfterViewInit {
       map(e => e.target.value)
     )
     .subscribe(data => {
-
       this.users = data ? this._users.filter(e => e.name.toLowerCase().includes(data.toLowerCase())) : this._users
     })
 
+  }
+
+  sortBy(param: string, field: string): void {
+    this.sortName === field  ? this.sortDirection = -this.sortDirection : this.sortDirection = this.sortDirection;
+    if (param === 'num') {
+      this.users.sort((a, b) => (a[field] - b[field]) * this.sortDirection)
+      this._users.sort((a, b) => (a[field] - b[field]) * this.sortDirection)
+      this.sortName = field;
+    }
+    if (param === 'str') {
+      this.users.sort((a, b) => (a[field].toLowerCase().localeCompare(b[field].toLowerCase())) * this.sortDirection)
+      this._users.sort((a, b) => (a[field].toLowerCase().localeCompare(b[field].toLowerCase())) * this.sortDirection)
+      this.sortName = field;
+    }
   }
 }
