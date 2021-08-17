@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { AfterViewInit,
+         Component,
+         ElementRef,
+         OnInit,
+         ViewChild,
+         ChangeDetectionStrategy,
+         ChangeDetectorRef } from '@angular/core';
 import { HttpService } from '../../services/http.service';
 import { debounceTime, map, tap } from 'rxjs/operators';
 import { fromEvent, Observable } from 'rxjs';
@@ -17,7 +23,8 @@ export class UsersComponent implements OnInit, AfterViewInit {
   sortName: string
   @ViewChild('search', {static: true}) search: ElementRef
 
-  constructor(private httpService: HttpService, private ref: ChangeDetectorRef) { }
+  constructor(private httpService: HttpService,
+              private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.httpService.getUsers()
