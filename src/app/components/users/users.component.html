@@ -3,7 +3,7 @@
         <input type="text" placeholder="Type to search..." #search>
     </div>
     <div *ngIf='users'>
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th (click)="sortBy('num', 'id')">Id</th>
@@ -30,3 +30,5 @@
           </div>
     </div>
 </div>
+
+

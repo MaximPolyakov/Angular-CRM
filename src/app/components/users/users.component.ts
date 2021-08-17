@@ -38,12 +38,13 @@ export class UsersComponent implements OnInit, AfterViewInit {
     )
     .subscribe(data => {
       this.users = data ? this._users.filter(e => e.name.toLowerCase().includes(data.toLowerCase())) : this._users
+      this.ref.detectChanges()
     })
 
   }
 
   sortBy(param: string, field: string): void {
-    this.sortName === field  ? this.sortDirection = -this.sortDirection : this.sortDirection = this.sortDirection;
+    this.sortDirection = this.sortName === field ? -this.sortDirection : this.sortDirection;
     if (param === 'num') {
       this.users.sort((a, b) => (a[field] - b[field]) * this.sortDirection)
       this._users.sort((a, b) => (a[field] - b[field]) * this.sortDirection)
