@@ -44,15 +44,13 @@ export class UsersComponent implements OnInit, AfterViewInit {
   }
 
   sortBy(param: string, field: string): void {
-    this.sortDirection = this.sortName === field ? -this.sortDirection : this.sortDirection;
+    this.sortDirection = this.sortName === field ? -this.sortDirection : 1;
     if (param === 'num') {
       this.users.sort((a, b) => (a[field] - b[field]) * this.sortDirection)
-      this._users.sort((a, b) => (a[field] - b[field]) * this.sortDirection)
       this.sortName = field;
     }
     if (param === 'str') {
       this.users.sort((a, b) => (a[field].toLowerCase().localeCompare(b[field].toLowerCase())) * this.sortDirection)
-      this._users.sort((a, b) => (a[field].toLowerCase().localeCompare(b[field].toLowerCase())) * this.sortDirection)
       this.sortName = field;
     }
   }
